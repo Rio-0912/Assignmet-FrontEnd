@@ -8,11 +8,13 @@ export default function TextForm(props) {
   const handleClick = () => {
     let newtext = text.toUpperCase();
     setText(newtext);
+    props.showAlert(' In upper case', 'success  ')
   };
 
   const lowClick = () => {
     let newtext = text.toLowerCase();
     setText(newtext);
+    props.showAlert(' In Lower case', 'success  ')
   };
 
   const handleOnChange = (event) => {
@@ -26,6 +28,7 @@ export default function TextForm(props) {
   const highlightKeyword = () => {
     let newtext = text.trimEnd();
     setText(newtext);
+    props.showAlert(' here are the exact words', 'success  ')
   };
 
   const handleFormSubmit = (event) => {
@@ -50,7 +53,7 @@ export default function TextForm(props) {
           <label htmlFor="myBox" className="form-label">{props.heading} - Welcome {namer}</label>
           <textarea
             rows={8}
-            className="form-control"
+            className={`form-control bg-${props.mode} text-${props.mode === 'light' ? 'dark' :'light'}`}
             onChange={handleOnChange}
             value={text}
             id="myBox"
@@ -58,7 +61,7 @@ export default function TextForm(props) {
           />
         </div>
 
-        <button type="button" className="btn btn-primary" onClick={handleClick}>
+        <button type="button" className="btn btn-primary " onClick={handleClick}>
           Convert To uppercase
         </button>
         <button type="button" className="btn btn-primary mx-2" onClick={lowClick}>
@@ -74,7 +77,7 @@ export default function TextForm(props) {
         <p>{text.split(" ").length} words and {text.length} characters</p>
         <p>{0.008 * text.split(" ").length} Minutes to read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0? text : 'Enter Text '}</p>
       </div>
     </>
   );

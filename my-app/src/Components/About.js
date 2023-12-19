@@ -8,7 +8,7 @@ export default function About() {
     })
     const [btntext, setbtntext] = useState("enable dark moade")
     let toggleMe = () => {
-        if (myStyle.color == 'white') {
+        if (myStyle.color === 'white') {
             setMyStyle({
                 color: 'black',
                 backgroundColor: 'white'
@@ -70,5 +70,6 @@ export default function About() {
                 </div>
             </div>
         </div>
+    
     )
 }

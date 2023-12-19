@@ -8,7 +8,7 @@ import TextForm from './Components/TextForm';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
-  const [mode, setMode] = useState('dark'); // Define and initialize state
+  const [mode, setMode] = useState('light'); // Define and initialize state
   const [alert, setalert] = useState(null)
   const [butn, setbutn] = useState('primary')
 

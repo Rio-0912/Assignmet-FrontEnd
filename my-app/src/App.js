@@ -3,7 +3,9 @@ import React, { useState } from 'react'; // Import React and useState
 import './App.css';
 import Navbar from './Components/Navbar';
 import Alerts from './Components/Alerts.js';
+import About from './Components/About.js';
 import TextForm from './Components/TextForm';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [mode, setMode] = useState('dark'); // Define and initialize state
@@ -27,12 +29,14 @@ function App() {
       document.body.style.backgroundColor = 'white'
       document.body.style.color = '#32383f'
       showAlert('Light mode has been enabled', 'success  ')
+      document.title = 'Text Utils -  Light Mode '
     } else {
       setMode('dark')
       setbutn('-light')
       document.body.style.backgroundColor = '#32383f'
       document.body.style.color = 'white'
       showAlert('Dark mode has been enabled', 'success  ')
+      document.title = 'Text Utils -  Dark Mode '
     }
   }
   const greene = () => {
@@ -41,6 +45,7 @@ function App() {
     document.body.style.backgroundColor = '#234223'
     document.body.style.color = 'white'
     console.log('greene workded ');
+    document.title = 'Text Utils -  Green Mode '
   }
   const rede = () => {
     setMode('dark')
@@ -48,6 +53,7 @@ function App() {
     document.body.style.backgroundColor = '#683b3b'
     document.body.style.color = 'white'
     console.log('greene workded ');
+    document.title = 'Text Utils -  Red Mode '
   }
   const bluee = () => {
     setMode('dark')
@@ -55,17 +61,24 @@ function App() {
     document.body.style.backgroundColor = '#1a1a48'
     document.body.style.color = 'white'
     console.log('greene workded ');
+    document.title = 'Text Utils -  Blue Mode '
   }
   // outliner 
 
-  
+
   return (
     <>
-      <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
-      <div className="container">
+      <BrowserRouter>
+        <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
+
         <Alerts alert={alert} />
-        <TextForm heading="Enter the Text" mode={mode} butn={butn}  showAlert={showAlert} />
-      </div>
+        <Switch>
+          <Route exact path="/about" ><About /> </Route>
+          <Route path="/"><TextForm heading="Enter the Text" mode={mode} butn={butn} showAlert={showAlert} /></Route>
+         
+        </Switch>
+
+      </BrowserRouter>
     </>
   );
 }

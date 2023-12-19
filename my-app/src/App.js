@@ -6,7 +6,7 @@ import Alerts from './Components/Alerts.js';
 import TextForm from './Components/TextForm';
 
 function App() {
-  const [mode, setMode] = useState('dark'); // Define and initialize state
+  const [mode, setMode] = useState('light'); // Define and initialize state
   const [alert, setalert] = useState(null)
   const [butn, setbutn] = useState('primary')
 

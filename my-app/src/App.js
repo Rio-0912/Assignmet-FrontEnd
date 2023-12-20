@@ -3,14 +3,14 @@ import React, { useState } from 'react'; // Import React and useState
 import './App.css';
 import Navbar from './Components/Navbar';
 import Alerts from './Components/Alerts.js';
-import About from './Components/About.js';
+// import About from './Components/About.js';
 import TextForm from './Components/TextForm';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [mode, setMode] = useState('light'); // Define and initialize state
   const [alert, setalert] = useState(null)
-  const [butn, setbutn] = useState('primary')
+  const [butn, setbutn] = useState('-dark')
 
   const showAlert = (message, type) => {
     setalert({
@@ -68,7 +68,7 @@ function App() {
 
   return (
     <>
-     <BrowserRouter>
+     {/* <BrowserRouter>
       <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
       <Alerts alert={alert} />
       <Routes>
@@ -81,7 +81,11 @@ function App() {
           element={<TextForm heading="Enter the Text" mode={mode} butn={butn} showAlert={showAlert} />}
         />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
+      <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
+      <Alerts alert={alert} />
+      <TextForm heading="Enter the Text" mode={mode} butn={butn} showAlert={showAlert} />
+
     </>
   );
 }

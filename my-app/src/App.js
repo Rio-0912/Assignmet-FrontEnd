@@ -3,9 +3,9 @@ import React, { useState } from 'react'; // Import React and useState
 import './App.css';
 import Navbar from './Components/Navbar';
 import Alerts from './Components/Alerts.js';
-// import About from './Components/About.js';
+import About from './Components/About.js';
 import TextForm from './Components/TextForm';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [mode, setMode] = useState('light'); // Define and initialize state
@@ -68,23 +68,24 @@ function App() {
 
   return (
     <>
-     {/* <BrowserRouter>
-      <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
+      <BrowserRouter>
+        <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
+        <Alerts alert={alert} />
+        <Routes>
+          <Route
+            path="/about"
+            element={<About mode={mode} showAlert={showAlert} />}
+          />
+          <Route
+            path="/"
+            element={<TextForm heading="Enter the Text" mode={mode} butn={butn} showAlert={showAlert} />}
+          />
+        </Routes>
+      </BrowserRouter>
+      {/* Default position  */}
+      {/* <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
       <Alerts alert={alert} />
-      <Routes>
-        <Route
-          path="/about"
-          element={<About mode={mode} showAlert={showAlert} />}
-        />
-        <Route
-          path="/"
-          element={<TextForm heading="Enter the Text" mode={mode} butn={butn} showAlert={showAlert} />}
-        />
-      </Routes>
-    </BrowserRouter> */}
-      <Navbar title="Text Utils" mode={mode} toggleMode={toggleMode} rede={rede} bluee={bluee} greene={greene} />
-      <Alerts alert={alert} />
-      <TextForm heading="Enter the Text" mode={mode} butn={butn} showAlert={showAlert} />
+      <TextForm heading="Enter the Text" mode={mode} butn={butn} showAlert={showAlert} /> */}
 
     </>
   );

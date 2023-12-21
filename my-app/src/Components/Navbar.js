@@ -1,5 +1,5 @@
 import React from 'react'
-// import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = (props) => {
@@ -14,18 +14,21 @@ const Navbar = (props) => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
-                            
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/about">About</Link>
+                            </li>
+
                         </ul>
                         <div className=" d-flex ">
-                        <div className="form-check mx-3">
-                            <input className="form-check-input" type="radio" onClick={props.greene} name="flexRadioDefault" id="flexRadioDefault1" />
-                            <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                Green
-                            </label>
-                        </div>
-                       
+                            <div className="form-check mx-3">
+                                <input className="form-check-input" type="radio" onClick={props.greene} name="flexRadioDefault" id="flexRadioDefault1" />
+                                <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                    Green
+                                </label>
+                            </div>
+
                             <div className="form-check mx-3">
                                 <input className="form-check-input" type="radio" onClick={props.bluee} name="flexRadioDefault" id="flexRadioDefault1" />
                                 <label className="form-check-label" htmlFor="flexRadioDefault1">
@@ -39,12 +42,12 @@ const Navbar = (props) => {
                                 </label>
                             </div>
                         </div>
-                        
+
                         <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'} mx-`}>
-                            <input className={`form-check-input navbar- `}  onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                            <label className={`form-check-label     `} htmlFor="flexSwitchCheckDefault">{props.mode === 'light' ? 'Enable dark mode ': 'Enable light mode'}</label>
+                            <input className={`form-check-input navbar- `} onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                            <label className={`form-check-label     `} htmlFor="flexSwitchCheckDefault">{props.mode === 'light' ? 'Enable dark mode ' : 'Enable light mode'}</label>
                         </div>
-                        
+
                     </div>
                 </div>
             </nav>

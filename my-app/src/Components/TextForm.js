@@ -61,13 +61,13 @@ export default function TextForm(props) {
           />
         </div>
 
-        <button type="button" className={`btn btn${props.butn}`} onClick={handleClick}>
+        <button type="button" className={`btn btn${props.butn}  my-1`} onClick={handleClick}>
           Convert To uppercase
         </button>
-        <button type="button" className={`btn btn${props.butn} mx-2`} onClick={lowClick}>
+        <button type="button" className={`btn btn${props.butn} mx-2 my-1`} onClick={lowClick}>
           Lower case
         </button>
-        <button type="button" className={`btn btn${props.butn} mx-2`} onClick={highlightKeyword}>
+        <button type="button" className={`btn btn${props.butn} mx-2 my-1`} onClick={highlightKeyword}>
           Get Exact words
         </button>
 
